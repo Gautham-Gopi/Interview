@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        input{
+            margin: 10px;
+        }
+        h1{
+            text-align: center;
+            color: #841818;
+        }
+    </style>
+    <script>
+        function validateForm(){
+            var fname = document.forms["myform"]["fname"].value;
+            var lname = document.forms["myform"]["lname"].value;
+            var email = document.forms["myform"]["email"].value;
+            var phno = document.forms["myform"]["phno"].value;
+            var dob = document.forms["myform"]["dob"].value;
+            var addr1 = document.forms["myform"]["addr1"].value;
+            var addr2 = document.forms["myform"]["addr2"].value;
+            var city = document.forms["myform"]["city"].value;
+            var state = document.forms["myform"]["state"].value;
+            var pcode = document.forms["myform"]["pcode"].value;
+            var country = document.forms["myform"]["country"].value;
+            if(fname == "" || lname == "" || email == "" || phno == "" || dob == "" || addr1 == "" || addr2 == "" || city == "" || state == "" || pcode == "" || country == ""){
+                alert("All fields are required");
+                return false;
+            }
+            if(phno.length != 10){
+                alert("Phone number should be of 10 digits");
+                return false;
+            }
+            if(pcode.length != 6){
+                alert("Postal code should be of 6 digits");
+                return false;
+            }
+            if(dob.length != 10){
+                alert("Date of Birth should be of 10 digits");
+                return false;
+            }
+            alert("Valid Data");
+        }
+    </script>
+</head>
+<body>
+    <h1>Student Registration Page</h1>
+    <br>
+    <form name="myform" onsubmit="return validateForm()" method="post">
+        <input type="text" name="fname" placeholder="First Name">
+        <input type="text" name="lname" placeholder="Last Name">
+        <br>
+        <input type="email" name="email" placeholder="Mail ID">
+        <input type="text" name="phno" placeholder="Phone Number">
+        <br>
+        <input type="text" name="dob" placeholder="DOB (dd-mm-yyyy)">
+        <label for="gender">Gender</label>
+        <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        <br>
+        <input type="text" name="addr1" placeholder="Address Line 1">
+        <input type="text" name="addr2" placeholder="Address Line 2">
+        <br>
+        <input type="text" name="city" placeholder="City">
+        <input type="text" name="state" placeholder="State">
+        <br>
+        <input type="text" name="pcode" placeholder="Postal Code">
+        <input type="text" name="country" placeholder="Country">
+        <br>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>
